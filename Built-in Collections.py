@@ -1,5 +1,5 @@
 
-""" 
+"""
 	TUPLES
 Immutable sequences of arbitrary objects
 
@@ -37,7 +37,7 @@ print(upper)
 a = 'jelly'
 b = 'bean'
 a, b = b, a
-print(a, b) 
+print(a, b)
 
 print(5 in (3,5,7,8,44546))
 print (5 not in (3,5,7,8,44546))
@@ -69,3 +69,96 @@ print(f'Math constants: pi={math.pi}, e={math.e}')
 print(f'Math constants: pi={math.pi:.3f}, e={math.e:.4f}')
 import datetime
 print(f'The current time is {datetime.datetime.now().isoformat()}')
+
+
+# RANGE
+print(range(5))
+for i in range(5):
+	print(i)
+
+
+print(list(range(5, 10)))
+#with step argument
+print(list(range(0,10,2)))
+"""
+range(stop)
+range(start, stop)
+range(start, stop, step)
+
+enumerate:
+constructs an iterable of (index, value) tuples around another iterable object
+"""
+t= [3,56,343545,678676]
+for p in enumerate(t):
+	print(p)
+# with tuples unpacking
+for i, v in enumerate(t):
+	print(f"i = {i}, v = {v}")
+
+# LISTS
+print(t[-1]) #last element
+print(t[-2])#second last element
+
+a = [ [1,2], [3,4]]
+b= a[:] #full slice
+print(a is b) #false
+print (a == b) #true
+print (a[0] is b[0])
+a[0] = [8,9]
+print(a[0] is b[0])
+a[1].append(5)
+print(a[1] == b[1])
+
+w = "the quick brown fox jumps over the lazy dog"
+print(w.count("the"))
+print("fox" in w)
+print("overtccil" not in w )
+a = 'I accidentally the whole universe'.split()
+a.insert(2, "destroy")
+print(a)
+print(' '.join(a))
+
+# DICTIONARIES
+
+g = dict(wheat=345, color=555, seashell=16774638)
+f = {'goldenrod': 1434567, 'indigo': 34567}
+f.update(g)
+print(f)
+
+
+colors = dict(first='blue', second='green', third='black')
+for key in colors:
+	print(f"{key} => {colors[key]}")
+
+#values method
+for value in colors.values():
+	print(value)
+
+#keys method
+for key in colors.keys():
+	print(key)
+
+#iterate over keys and values in tandem
+for key, value in colors.items():
+	print(f"{key} => {value}")
+
+
+# SETS are unordered collections of unique elements
+# Cannot contain duplicates
+
+for x in {1,2,3,45,6,7,8}:
+	print(x)
+
+a = {1,2,3}
+b = {4,5,6}
+c = {5,6,7, 8, 9}
+d = {3,4,9,7}
+e = {1,2,3,4,5,6}
+
+print(a.union(b))
+print(a.intersection(d))
+print(a.difference(d))
+print(b.symmetric_difference(c))
+print(a.issubset(e))
+print(e.issuperset(b))
+print(a.isdisjoint(c))
